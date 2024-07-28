@@ -1,13 +1,13 @@
-package com.medinastr.demo;
+package com.medinastr.spring.crudapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class CrudappApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(CrudappApplication.class, args);
 	}
 
 }

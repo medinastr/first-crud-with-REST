@@ -1,10 +1,10 @@
-package com.medinastr.demo;
+package com.medinastr.spring.crudapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class CrudappApplicationTests {
 
 	@Test
 	void contextLoads() {
