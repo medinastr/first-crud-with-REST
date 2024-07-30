@@ -22,4 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getEmployeesList() {
         return employeeDAO.getEmployeesList();
     }
+
+    @Override
+    public Employee findSingleEmployee(int id) {
+        return employeeDAO.findSingleEmployee(id);
+    }
 }

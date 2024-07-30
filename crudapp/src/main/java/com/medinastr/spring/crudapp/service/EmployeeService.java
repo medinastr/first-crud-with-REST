@@ -5,5 +5,8 @@ import com.medinastr.spring.crudapp.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {
+
     List<Employee> getEmployeesList();
+
+    Employee findSingleEmployee(int id);
 }
