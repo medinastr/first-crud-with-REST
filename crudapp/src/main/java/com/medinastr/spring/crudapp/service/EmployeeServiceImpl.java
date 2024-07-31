@@ -2,6 +2,7 @@ package com.medinastr.spring.crudapp.service;
 
 import com.medinastr.spring.crudapp.dao.EmployeeDAO;
 import com.medinastr.spring.crudapp.entity.Employee;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee findSingleEmployee(int id) {
         return employeeDAO.findSingleEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public Employee save(Employee employee) {
+        return employeeDAO.save(employee);
     }
 }

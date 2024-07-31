@@ -9,4 +9,6 @@ public interface EmployeeService {
     List<Employee> getEmployeesList();
 
     Employee findSingleEmployee(int id);
+
+    Employee save(Employee employee);
 }
