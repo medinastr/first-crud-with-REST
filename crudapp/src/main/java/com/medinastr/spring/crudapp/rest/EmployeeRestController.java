@@ -38,8 +38,14 @@ public class EmployeeRestController {
     // add mapping for POST /employees - add new employee
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee) { // receive the data from json
-//        employee = new Employee("Pedro", "Medina", "pedro2024m@medinastr.com");
         employee.setId(0); // force the spring to insert new employee
+        Employee dbEmployee = employeeService.save(employee);
+        return dbEmployee;
+    }
+
+    // add mapping fot PUT /employees - update employee
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
         Employee dbEmployee = employeeService.save(employee);
         return dbEmployee;
     }
