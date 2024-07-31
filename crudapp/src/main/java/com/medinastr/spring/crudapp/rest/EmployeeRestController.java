@@ -1,6 +1,5 @@
 package com.medinastr.spring.crudapp.rest;
 
-import com.medinastr.spring.crudapp.dao.EmployeeDAO;
 import com.medinastr.spring.crudapp.entity.Employee;
 import com.medinastr.spring.crudapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +22,12 @@ public class EmployeeRestController {
     // expose "/employees" and return a list of employees
     @GetMapping("/employees")
     public List<Employee> getEmployeesList() {
-        return employeeService.getEmployeesList();
+        return employeeService.findAll();
     }
 
     @GetMapping("/employees/{id}")
     public Employee getEmployee(@PathVariable int id) {
-        Employee employee = employeeService.findSingleEmployee(id);
+        Employee employee = employeeService.findById(id);
         if(employee == null) {   // employee not found
             throw new RuntimeException("Employee id not found.");
         }

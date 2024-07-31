@@ -3,12 +3,13 @@ package com.medinastr.spring.crudapp.service;
 import com.medinastr.spring.crudapp.entity.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
 
-    List<Employee> getEmployeesList();
+    List<Employee> findAll();
 
-    Employee findSingleEmployee(int id);
+    Employee findById(int id);
 
     Employee save(Employee employee);
 
