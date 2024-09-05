@@ -20,10 +20,21 @@ public class DemoSecurityConfig {
     // add support for JDBC
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) { // it will inject data source
-        // tell spring security to use JDBC authentication with our data source
-        return new JdbcUserDetailsManager(dataSource); // all information is stored in database
-    }
 
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        // retrieve username, password
+        jdbcUserDetailsManager.setUsersByUsernameQuery(
+                "select username, password, active from members where username=?"
+        );
+        // retrieve authorities
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+                "select username, role from roles where username=?"
+        );
+
+        return jdbcUserDetailsManager;
+    }
+ 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(
